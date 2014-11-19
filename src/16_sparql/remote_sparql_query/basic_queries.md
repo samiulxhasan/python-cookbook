@@ -15,6 +15,10 @@
 - [table: property vs. total number of triples using the property](#table-property-vs-total-number-of-triples-using-the-property)
 - [table: property vs. total number of distinct subjects in triples using the property](#table-property-vs-total-number-of-distinct-subjects-in-triples-using-the-property)
 - [table: property vs. total number of distinct objects in triples using the property](#table-property-vs-total-number-of-distinct-objects-in-triples-using-the-property)
+- [Finding super classes](#finding-super-classes)
+- [Finding sub classes](#finding-sub-classes)
+- [If you need the transitive closure of sub/super classes then you have two options:](#if-you-need-the-transitive-closure-of-subsuper-classes-then-you-have-two-options)
+- [Tutorials - counting classes, subclasses etc.](#tutorials---counting-classes-subclasses-etc)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
