@@ -44,3 +44,35 @@ SELECT  ?p (COUNT(?s) AS ?count ) { ?s ?p ?o } GROUP BY ?p ORDER BY ?count
 SELECT  ?p (COUNT(DISTINCT ?s ) AS ?count ) { ?s ?p ?o } GROUP BY ?p ORDER BY ?count
 #### table: property vs. total number of distinct objects in triples using the property
 SELECT  ?p (COUNT(DISTINCT ?o ) AS ?count ) { ?s ?p ?o } GROUP BY ?p ORDER BY ?count
+
+#### Finding super classes
+
+```
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ns: <http://www.domain.com/your/namespace/>
+
+SELECT ?superClass WHERE { ns:AcousticWave rdfs:subClassOf ?superClass . }
+```
+
+#### Finding sub classes
+
+```
+SELECT ?subClass WHERE { ?subClass rdfs:subClassOf ns:Wave . }
+If you want to retrieve the labels for every subclass of ns:Wave you would do something like ...
+
+SELECT ?subClass ?label WHERE { 
+        ?subClass rdfs:subClassOf ns:Wave . 
+        ?subClass rdfs:label ?label . 
+}
+```
+
+#### If you need the transitive closure of sub/super classes then you have two options:
+
+- Iterate recursively over these queries until you have collected the closure.
+- Pass your RDF data through a RDF/RDFS reasoner to forward chain all entailments and assert these in your RDF database.
+
+#### Tutorials - counting classes, subclasses etc.
+
+[Ontobee tutorial](http://www.ontobee.org/tutorial/tutorial_sparql.php)
+
+[Virtuoso tutorial](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtsubClassOfOrientedSubsumptionTransitiveOptions)
