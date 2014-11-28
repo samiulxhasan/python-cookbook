@@ -106,6 +106,14 @@ SELECT ?subClass ?label WHERE {
 
 #Virtuoso
 
+#### Virtuoso - run commands from wget
+GRANT EXECUTE ON DB.DBA.RL_I2ID TO "SPARQL";
+
+
+#### Virtuoso - federated query default limit
+[root@DEV-02 db]# grep ResultSetMaxRows virtuoso.ini
+ResultSetMaxRows                = 10000000000000000000
+
 #### Enable federated querying from Virtuoso
 
 1. [Enable CORS](http://www.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtTipsAndTricksGuideCORSSetup#Server-level CORS Setup)
